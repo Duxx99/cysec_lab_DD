@@ -1,0 +1,34 @@
+version: '3.7'
+
+volumes:
+  webapp:
+
+networks:
+  lab_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.1.0/24
+
+services:
+  webapp:
+    build:
+      dockerfile: ./webapp.dockerfile
+    pull_policy: build
+    networks:
+      lab_network:
+        ipv4_address: 192.168.1.10
+    ports:
+      - 4280:80
+    restart: unless-stopped
+
+  kali_linux:
+    build:
+      dockerfile: ./kali.dockerfile
+    pull_policy: build
+    command: sleep infinity
+    networks:
+      - lab_network
+    ports:
+      - 8080:8080
+    restart: unless-stopped
