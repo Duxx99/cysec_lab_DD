@@ -40,10 +40,26 @@
         echo "<p>Congrats!!</p>";
     }
 
+    // Check if GET parameter "devkey" is set
+    if (isset($_GET['devkey'])) {
+        $devkey = $_GET['devkey'];
+        echo "<p>GET parameter 'devkey' value: $devkey</p>";
+        echo "<br>";
+        echo "<p>Congrats!!</p>";
+    }
+
     // Check if POST parameter "post_hack" is set
     if (isset($_POST['post'])) {
         $post_hack = $_POST['post'];
         echo "<p>POST parameter 'post' value: $post_hack</p>";
+        echo "<br>";
+        echo "<p>Congrats!!</p>";
+    }
+
+    // Check if POST parameter "post_hack" is set
+    if (isset($_POST['user_id'])) {
+        $user_id = $_POST['user_id'];
+        echo "<p>POST parameter 'user_id' value: $user_id</p>";
         echo "<br>";
         echo "<p>Congrats!!</p>";
     }
