@@ -13,7 +13,8 @@ networks:
 services:
   webapp:
     build:
-      dockerfile: ./webapp.dockerfile
+      context: .
+      dockerfile: webapp.dockerfile
     pull_policy: build
     networks:
       lab_network:
@@ -24,7 +25,8 @@ services:
 
   kali_linux:
     build:
-      dockerfile: ./kali.dockerfile
+      context: .
+      dockerfile: kali.dockerfile
     pull_policy: build
     command: sleep infinity
     networks:
