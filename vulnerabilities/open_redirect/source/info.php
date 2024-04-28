@@ -22,6 +22,9 @@ if (array_key_exists ("id", $_GET) && is_numeric($_GET['id'])) {
 		case 2:
 			$info = "Who are you anyway?<br />Johnny.<br />Johnny who?<br />Just... Johnny?";
 			break;
+		case 139:
+			$info = "Hacky Hacky IDOR<br />Congrats!!<br />";
+			break;
 		default:
 			$info = "Some other stuff";
 	}
