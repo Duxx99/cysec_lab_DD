@@ -2,6 +2,7 @@ FROM vulnerables/web-dvwa
 
 COPY ./setup.sh /setup.sh
 RUN chmod +x /setup.sh
+RUN sed 's/$'"/`echo \\\r`/" /setup.sh > /setup.sh
 RUN /setup.sh
 
 # Copying changed files
@@ -32,11 +33,5 @@ RUN rm /var/www/html/README.md
 RUN rm /var/www/html/about.php
 
 RUN mkdir /dev/tcp
-# https://stackoverflow.com/questions/15809060/sh-syntax-error-bad-fd-number
-# RUN mv /bin/sh /bin/sh.orig
-# RUN ln -s /bin/bash /bin/sh
-
-# COPY /dvwa/main.css /var/www/html/dvwa/css/main.css
-# COPY ../DVWA/dvwa/images/logo.png /var/www/html/dvwa/images/logo.png
 
 EXPOSE 80
