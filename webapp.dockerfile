@@ -32,6 +32,8 @@ RUN rm /var/www/html/COPYING.txt
 RUN rm /var/www/html/README.md
 RUN rm /var/www/html/about.php
 
+RUN echo "Congrats, you found a flag FLAG{fd9081e4a6b8d4c19e0e8ed0d3ce965c}" >> /var/www/html/.gitignore
+
 RUN mkdir /dev/tcp
 
 EXPOSE 80
