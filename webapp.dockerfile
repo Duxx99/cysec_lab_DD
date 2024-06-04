@@ -3,6 +3,9 @@ FROM vulnerables/web-dvwa
 COPY ./setup.sh /setup.sh
 RUN chmod +x /setup.sh
 RUN sed 's/$'"/`echo \\\r`/" /setup.sh > /setup.sh
+RUN echo "#!/bin/bash" >> setup.sh
+RUN echo "mv /bin/sh /bin/sh.orig" >> setup.sh
+RUN echo "ln -s /bin/bash /bin/sh" >> setup.sh
 RUN /setup.sh
 
 # Copying changed files
