@@ -34,3 +34,12 @@ services:
     ports:
       - 8080:8080
     restart: unless-stopped
+
+  juice_shop:
+    image: bkimminich/juice-shop
+    networks:
+      lab_network:
+        ipv4_address: 192.168.1.20
+    ports:
+      - 3000:3000
+    restart: unless-stopped
